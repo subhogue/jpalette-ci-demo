@@ -12,7 +12,7 @@ public interface Color
 {
 	/**
 	 * @return The color represented in CYMK format
-	 */
+	 */ 
 	public ColorCymk toCymk();
 
 	/**
