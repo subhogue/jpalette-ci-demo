@@ -25,7 +25,15 @@ public class ColorRgb implements Color
 		 * Hint: use Util.varMax() where max() is used in the formula
 		 */
 
-		return new ColorCymk(0, 0, 0, 0);
+		double dblR = (double)r/255.0;
+		double dblG = (double)g/255.0;
+		double dblB = (double)b/255.0;
+		
+		double k = (double)((double)1-(Util.varMax(Util.varMax(dblR, dblG),dblB)));
+		double c = (double)(1.0 - dblR - k)/((double)1 - k);
+		double m = (double)(1.0 - dblG - k)/((double)1 - k);
+		double y = (double)(1.0 - dblB - k)/((double)1 - k);
+		return new ColorCymk(c, m, y, k);
 	}
 
 	@Override
